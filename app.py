@@ -10,15 +10,23 @@ from model import HCTGNet
 st.set_page_config(page_title="AI Cardiology Dashboard", page_icon="🫀")
 
 @st.cache_resource
+@st.cache_resource
 def load_model():
     model = HCTGNet(num_classes=5)
     
-    # Automatically switch between GPU and CPU for local PC use
+    # Automatically switch between GPU and CPU
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    # Load the weights
-    state_dict = torch.load('best_hctg_net.pth', map_location=device)
-    model.load_state_dict(state_dict)
+    # Load the checkpoint dictionary
+    checkpoint = torch.load('best_hctg_net.pth', map_location=device)
+    
+    # Extract ONLY the model weights from the checkpoint
+    if 'model_state_dict' in checkpoint:
+        model.load_state_dict(checkpoint['model_state_dict'])
+    else:
+        # Fallback just in case it's not a checkpoint
+        model.load_state_dict(checkpoint) 
+        
     model.eval()
     model.to(device)
     return model, device
