@@ -53,7 +53,7 @@ class TrainConfig:
     # --- Data ---
     data_dir    : str   = './mitbih_data'
     batch_size  : int   = 256
-    num_workers : int   = 4
+    num_workers : int = 0 
 
     # --- Model ---
     num_classes : int   = 5
@@ -415,8 +415,8 @@ def train(config: TrainConfig):
         seed=config.seed,
     )
     train_loader = loaders['train']
-    val_loader   = loaders['val']
-    test_loader  = loaders['test']
+    val_loader = loaders['val']
+    test_loader = loaders['test']
 
     # -------------------------------------------------------------------------
     # 3. Model
@@ -444,10 +444,10 @@ def train(config: TrainConfig):
     class_weights = compute_class_weight(
         class_weight='balanced',
         classes=np.arange(config.num_classes),
-        y=np.concatenate([batch[1].numpy() for batch in train_loader])
+        y=np.concatenate([batch[1].numpy() for batch in train_loader]),
     )
     weights_tensor = torch.tensor(class_weights, dtype=torch.float32).to(device)
-    print(f"\n[LOSS] Class weights: {{ {', '.join(f'{i}: {w:.3f}' for i, w in enumerate(class_weights))} }}")
+    print(f"\n[LOSS] Class weights: {{ {', '.join(f'{i}: {float(w):.3f}' for i, w in enumerate(class_weights))} }}")
     criterion = nn.CrossEntropyLoss(weight=weights_tensor)
 
     # -------------------------------------------------------------------------
@@ -570,7 +570,7 @@ def train(config: TrainConfig):
     # Load the BEST checkpoint (not the last epoch's weights — these may have
     # overfit if training ran many epochs past the best val F1 point).
     print(f"[TEST] Loading best checkpoint from '{config.checkpoint_path}' ...")
-    checkpoint = torch.load(config.checkpoint_path, map_location=device)
+    checkpoint = torch.load(config.checkpoint_path, map_location=device, weights_only=False)
     model.load_state_dict(checkpoint['model_state_dict'])
     print(f"  Loaded weights from epoch {checkpoint['epoch']}  "
           f"(val F1 = {checkpoint['val_f1']:.4f})\n")
@@ -627,12 +627,13 @@ if __name__ == "__main__":
     # For a full production run, set num_epochs=100 (as per the paper).
     # ------------------------------------------------------------------
     cfg = TrainConfig()
-    cfg.num_epochs  = 100    # ← change to 100 for full training
-    cfg.num_workers = 4    # ← set to 0 for Windows / debugging; 4 for Linux
+    cfg.num_epochs  = 30     # ← changed from 100 to 30
+    cfg.num_workers = 0      # ← keep at 0 for Windows
+    cfg.batch_size  = 512    # ← add this line for faster training   # ← set to 0 for Windows / debugging; 4 for Linux
 
-    print("=" * 72)
+    print("="*72)
     print("  Trustworthy Arrhythmia Diagnosis — HCTG-Net Training")
-    print("=" * 72)
+    print("="*72)
     print(f"  Epochs      : {cfg.num_epochs}")
     print(f"  Batch size  : {cfg.batch_size}")
     print(f"  LR          : {cfg.learning_rate}")
