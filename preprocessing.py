@@ -25,6 +25,11 @@ from sklearn.preprocessing import LabelEncoder
 from imblearn.over_sampling import SMOTE
 from collections import Counter
 
+# Top-level seed worker — must be at module level (not nested inside a
+# function) so that Windows multiprocessing can pickle it correctly.
+def seed_worker(worker_id):
+    np.random.seed(RANDOM_SEED + worker_id)
+
 
 # =============================================================================
 # SECTION 1: GLOBAL CONSTANTS
@@ -395,9 +400,7 @@ def build_dataloaders(
         dict with keys 'train', 'val', 'test' → DataLoader objects.
     """
 
-    def seed_worker(worker_id):
-        """Ensures each DataLoader worker has a deterministic but unique seed."""
-        np.random.seed(seed + worker_id)
+    
 
     g = torch.Generator()
     g.manual_seed(seed)
