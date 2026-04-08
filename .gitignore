@@ -1,0 +1,21 @@
+# Data files (too large for GitHub)
+mitbih_data/
+ptbxl_data/
+ptbxl.zip
+
+# Model weights (large files)
+best_hctg_net.pth
+results/ptbxl/best_ptbxl_model.pth
+results/ablation/*.pth
+results/crossval/*.pth
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Sample files
+sample_class_*.csv
+ptbxl_sample_*.csv
+real_patient_*.csv

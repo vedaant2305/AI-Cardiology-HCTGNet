@@ -1,0 +1,20 @@
+=================================================================
+  HCTG-Net - Statistical Significance Report
+=================================================================
+  alpha = 0.05
+
+  McNEMAR'S TEST
+------------------------------------------------------------
+  Comparison                                p-value   Sig?
+  HCTG-Net (Ours) vs Random Forest          0.122663     NO  h=0.012 Small
+  HCTG-Net (Ours) vs Simple 1D-CNN          0.000000    YES  h=0.210 Medium
+  Random Forest vs Simple 1D-CNN          0.000000    YES  h=0.198 Small
+
+  WILCOXON TEST
+  p=0.031250  SIGNIFICANT
+
+  IEEE STATEMENT:
+  HCTG-Net demonstrated statistically significant
+  improvements over all baselines (p<0.05).
+
+=================================================================

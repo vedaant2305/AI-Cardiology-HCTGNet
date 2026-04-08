@@ -1,0 +1,16 @@
+BASELINE: Random Forest
+
+Test F1       : 0.9176
+Test Accuracy : 0.9861
+
+              precision    recall  f1-score   support
+
+           N     0.9929    0.9920    0.9924     18122
+           S     0.9047    0.9047    0.9047       556
+           V     0.9633    0.9620    0.9627      1447
+           F     0.6789    0.8063    0.7371       160
+           Q     0.9950    0.9876    0.9913      1609
+
+    accuracy                         0.9861     21894
+   macro avg     0.9070    0.9305    0.9176     21894
+weighted avg     0.9865    0.9861    0.9863     21894

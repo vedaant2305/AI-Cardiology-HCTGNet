@@ -1,0 +1,29 @@
+============================================================
+  HCTG-Net — Model Calibration Report
+============================================================
+
+  Method: Temperature Scaling (Guo et al., 2017)
+  Optimal Temperature T = 1.5758
+
+  Metric                             Before      After
+  ----------------------------------------------------
+  ECE (Expected Cal. Error)          0.0084     0.0031
+  MCE (Maximum Cal. Error)           0.3897     0.3817
+  ECE Improvement                              +0.0054
+
+  Calibration Quality (ECE):
+    < 0.01 = Excellent
+    < 0.05 = Well calibrated
+    < 0.10 = Acceptable
+    > 0.10 = Poorly calibrated
+
+  Before scaling: Excellent
+  After  scaling: Excellent
+
+  IEEE Paper Statement:
+  HCTG-Net achieves an ECE of 0.0084 without
+  calibration, reduced to 0.0031 after temperature
+  scaling (T=1.576), demonstrating reliable
+  confidence estimation suitable for clinical deployment.
+
+============================================================

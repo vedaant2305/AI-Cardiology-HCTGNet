@@ -1,0 +1,16 @@
+BASELINE: Simple 1D-CNN
+
+Test F1       : 0.8988
+Test Accuracy : 0.9806
+
+              precision    recall  f1-score   support
+
+           N     0.9895    0.9886    0.9890     18122
+           S     0.7985    0.7842    0.7913       556
+           V     0.9553    0.9599    0.9576      1447
+           F     0.7273    0.8000    0.7619       160
+           Q     0.9932    0.9950    0.9941      1609
+
+    accuracy                         0.9806     21894
+   macro avg     0.8927    0.9055    0.8988     21894
+weighted avg     0.9807    0.9806    0.9806     21894

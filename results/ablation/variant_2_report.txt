@@ -1,0 +1,18 @@
+VARIANT 2: CNN Only
+CNN branch only — no Transformer
+
+Best Val F1 : 0.9152
+Test F1     : 0.9025
+Test Acc    : 0.9798
+
+              precision    recall  f1-score   support
+
+           N     0.9886    0.9891    0.9889     18122
+           S     0.7271    0.7860    0.7554       556
+           V     0.9668    0.9468    0.9567      1447
+           F     0.8411    0.7937    0.8167       160
+           Q     0.9994    0.9907    0.9950      1609
+
+    accuracy                         0.9798     21894
+   macro avg     0.9046    0.9013    0.9025     21894
+weighted avg     0.9803    0.9798    0.9800     21894

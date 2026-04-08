@@ -1,0 +1,25 @@
+HCTG-Net on PTB-XL Dataset
+==================================================
+
+Test Accuracy : 0.9262
+Test Macro F1 : 0.8371
+Macro AUC     : nan
+
+Per-Class Report:
+              precision    recall  f1-score   support
+
+           N     0.9698    0.9422    0.9558     30352
+           S     0.7751    0.8454    0.8088      4302
+           V     0.7307    0.7000    0.7150       690
+           Q     0.8139    0.9312    0.8686      3475
+
+    accuracy                         0.9262     38819
+   macro avg     0.8224    0.8547    0.8371     38819
+weighted avg     0.9300    0.9262    0.9274     38819
+
+
+Comparison with MIT-BIH:
+  MIT-BIH Accuracy : 0.9874
+  PTB-XL Accuracy  : 0.9262
+  MIT-BIH Macro F1 : 0.9256
+  PTB-XL Macro F1  : 0.8371

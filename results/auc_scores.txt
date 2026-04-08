@@ -1,0 +1,21 @@
+=======================================================
+  HCTG-Net — AUC Scores (IEEE Paper Table)
+=======================================================
+
+  Class                               AUC
+  ----------------------------------------
+  N — Normal                     0.9967
+  S — Supraventricular           0.9870
+  V — Ventricular (PVC)          0.9994
+  F — Fusion                     0.9854
+  Q — Paced/Unknown              0.9999
+  ----------------------------------------
+  Macro AUC (Mean)               0.9937
+
+  IEEE Reportable Result:
+  The proposed HCTG-Net achieved a macro-average
+  AUC of 0.9937 across all 5 AAMI classes,
+  evaluated on the MIT-BIH test set using the
+  One-vs-Rest strategy.
+
+=======================================================

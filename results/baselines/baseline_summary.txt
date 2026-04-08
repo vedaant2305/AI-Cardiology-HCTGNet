@@ -1,0 +1,26 @@
+========================================================================
+  HCTG-Net vs Baselines — IEEE Paper Comparison Table
+========================================================================
+
+  Model                        Test F1   Test Acc  vs HCTG-Net         Type
+  ----------------------------------------------------------------------
+  HCTG-Net (Ours)            92.5598%   98.7439%     proposed  Proposed
+  Random Forest              91.7636%   98.6115%       -0.80%  Classical ML
+  SVM (RBF)                  82.4884%   96.3004%      -10.07%  Classical ML
+  Simple 1D-CNN              89.8782%   98.0588%       -2.68%  Deep Learning
+  BiLSTM                     81.3821%   95.2727%      -11.18%  Deep Learning
+  ----------------------------------------------------------------------
+
+  KEY FINDINGS:
+  • HCTG-Net outperforms Random Forest        by +0.80% F1
+  • HCTG-Net outperforms SVM (RBF)            by +10.07% F1
+  • HCTG-Net outperforms Simple 1D-CNN        by +2.68% F1
+  • HCTG-Net outperforms BiLSTM               by +11.18% F1
+
+  CONCLUSION:
+  HCTG-Net achieves the highest Macro F1 and Accuracy
+  across all baseline comparisons, demonstrating the
+  effectiveness of the hybrid CNN-Transformer architecture
+  with gated fusion for ECG arrhythmia classification.
+
+========================================================================
